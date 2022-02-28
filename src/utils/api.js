@@ -4,6 +4,7 @@ class Api {
         this._headers = headers;
     }
 
+    // Запрос на получение массива из 500 последних новостей
     getNews() {
         return fetch(this._baseUrl + 'newstories.json?', {
             headers: this._headers
@@ -11,6 +12,7 @@ class Api {
             .then(this._checkResponse);
     }
 
+    //Запрос на любой элемент по id
     getItemById(id) {
         return fetch(this._baseUrl + 'item/' + id + '.json?', {
             headers: this._headers

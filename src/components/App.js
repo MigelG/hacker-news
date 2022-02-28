@@ -12,17 +12,20 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Получаю с сервера массив из 500 id последних новостей
     api.getNews()
       .then(data => {
         return data.slice(0, 100);
       })
       .then((data) => {
 
+        // На каждый id запрашиваю новость
         const promises = data.map((id) => {
           return api.getItemById(id)
             .catch(err => console.log(err));
         });
 
+        // Когда все новости будут получены, показываю их пользователю
         Promise.all(promises)
           .then((results) => {
             setNewsList(results);

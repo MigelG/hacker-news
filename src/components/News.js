@@ -6,6 +6,8 @@ import api from '../utils/api';
 function News() {
     const { id } = useParams();
     const [news, setNews] = useState({});
+    // Получаю новость с сервера по id, а не из уже готового списка
+    // на случай, если пользователь сам укажет id в адресной строке
     useEffect(() => {
         api.getItemById(id)
             .then((i) => {
@@ -22,6 +24,7 @@ function News() {
             .catch(err => console.log(err));
     }, []);
 
+    // Стейт для подсчета количества комментариев
     const [allKids, setAllKids] = useState(0);
     function changeAllKids(kids) {
         setAllKids(allKids + kids);
