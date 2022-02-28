@@ -1,0 +1,11 @@
+.card__title {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+@media screen and (min-width: 767px) {
+    .card__title {
+        font-size: 28px;
+    }
+}

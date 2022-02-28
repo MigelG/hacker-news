@@ -1,0 +1,12 @@
+.card {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+}
+
+.card:hover {
+    box-shadow: 5px 5px 10px gray;
+}
