@@ -4,7 +4,7 @@ function NewsPreview({ id, title, author, time, score }) {
     const date = new Date(time * 1000);
 
     return (
-        <Link to={`/${id}`} className='card'>
+        <Link to={`/news/${id}`} className='card'>
             <article className='card__body'>
                 <h2 className='card__title'>{title}</h2>
                 <div className='card__info'>

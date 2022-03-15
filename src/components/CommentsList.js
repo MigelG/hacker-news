@@ -1,19 +1,13 @@
-import { useEffect } from "react";
 import Comment from "./Comment";
 
-function CommentsList({ commentsList, changeAllKids }) {
-
-    useEffect(() => {
-        changeAllKids(commentsList.length);
-    }, []);
+function CommentsList({ commentsList }) {
 
     return (
         <ul className='comments__list'>
             {
-                commentsList.map((commentId) => <Comment
-                    key={commentId}
-                    commentId={commentId}
-                    changeAllKids={changeAllKids} />)
+                commentsList.map((comment) => <Comment
+                    key={comment.id}
+                    comment={comment} />)
             }
         </ul>
     );
