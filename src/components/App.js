@@ -28,6 +28,10 @@ function App() {
           <NotFoundPage />
         </Route>
 
+        <Route exact path='/'>
+          <Redirect to='/news' />
+        </Route>
+
         <Route path='*'>
           <Redirect to='/error' />
         </Route>
