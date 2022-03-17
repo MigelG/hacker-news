@@ -17,8 +17,7 @@ function Main({ newsList, setNewsList }) {
 
                     // На каждый id запрашиваю новость
                     const promises = data.map((id) => {
-                        return api.getItemById(id)
-                            .catch(err => console.log(err));
+                        return api.getItemById(id);
                     });
 
                     // Когда все новости будут получены, показываю их пользователю

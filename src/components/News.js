@@ -2,7 +2,6 @@ import CommentsList from './CommentsList';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../utils/api';
-import { Redirect } from 'react-router-dom';
 
 function News() {
     const { id } = useParams();
@@ -14,15 +13,14 @@ function News() {
         router.push('/error');
     }
 
-    // Получаю новость с сервера по id, а не из уже готового списка
-    // на случай, если пользователь сам укажет id в адресной строке
+    // Получаю новость с сервера по id
     useEffect(() => {
         api.getItemById(id)
             .then((i) => {
                 if (i && i.type === 'story') {
-                    setNews(getComments(i));
+                    setNews(i);
                 } else {
-
+                    router.push('/error');
                 }
             })
             .catch(err => console.log(err));
@@ -35,27 +33,6 @@ function News() {
     }
 
     const date = new Date(news.time * 1000);
-
-    function getComments(object) {
-        if (!object.kids) {
-            return object;
-        }
-        let arr = [];
-        changeAllKids(object.kids.length);
-        object.kids.forEach(async (id) => {
-            await api.getItemById(id)
-                .then((c) => {
-                    if (!c.dead && !c.deleted) {
-                        if (c.kids) {
-                            getComments(c);
-                        }
-                        arr.push(c);
-                    }
-                })
-        });
-        object.kids = arr;
-        return object;
-    }
 
     return (
         <article className="news">
@@ -76,7 +53,8 @@ function News() {
                     <>
                         <h2 className='comments__title'>Комментарии ({allKids}):</h2>
                         <CommentsList
-                            commentsList={news.kids} />
+                            commentsList={news.kids}
+                            changeAllKids={changeAllKids} />
                     </> :
                     'Комментариев пока нет :('}
             </div>

@@ -1,8 +1,8 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import News from './News';
-import Error from './Error';
+import NotFoundPage from './NotFoundPage';
 import Main from './Main';
 import { useState } from 'react';
 
@@ -24,8 +24,12 @@ function App() {
           <News />
         </Route>
 
+        <Route path='/error'>
+          <NotFoundPage />
+        </Route>
+
         <Route path='*'>
-          <Error />
+          <Redirect to='/error' />
         </Route>
       </Switch>
 
