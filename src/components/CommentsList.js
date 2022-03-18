@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../utils/api";
 import Comment from "./Comment";
 
-function CommentsList({ commentsList, changeAllKids }) {
+function CommentsList({ commentsList, changeAllKids, count }) {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,6 @@ function CommentsList({ commentsList, changeAllKids }) {
                 return results.filter(c => !c.deleted && !c.dead);
             })
             .then((res) => {
-                changeAllKids(res.length);
                 setComments(res);
             })
             .catch(err => console.log(err));
@@ -28,7 +27,8 @@ function CommentsList({ commentsList, changeAllKids }) {
                 comments.map((comment) => <Comment
                     key={comment.id}
                     comment={comment}
-                    changeAllKids={changeAllKids} />)
+                    changeAllKids={changeAllKids}
+                    count={count} />)
             }
         </ul>
     );

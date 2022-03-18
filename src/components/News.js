@@ -1,12 +1,13 @@
 import CommentsList from './CommentsList';
 import { useParams, useHistory } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import api from '../utils/api';
 
 function News() {
     const { id } = useParams();
     const [news, setNews] = useState({});
     const router = useHistory();
+    const count = useRef(0);
 
     const regex = /^[0-9]+$/;
     if (!regex.test(id)) {
@@ -51,10 +52,11 @@ function News() {
             <div className='comments'>
                 {news.kids ?
                     <>
-                        <h2 className='comments__title'>Комментарии ({allKids}):</h2>
+                        <h2 className='comments__title'>Комментарии ({count.current}):</h2>
                         <CommentsList
                             commentsList={news.kids}
-                            changeAllKids={changeAllKids} />
+                            changeAllKids={changeAllKids}
+                            count={count} />
                     </> :
                     'Комментариев пока нет :('}
             </div>

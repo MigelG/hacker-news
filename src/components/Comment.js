@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import CommentsList from './CommentsList';
 
-function Comment({ comment, changeAllKids }) {
+function Comment({ comment, changeAllKids, count }) {
+    useEffect(() => {
+        changeAllKids(1);
+        count.current = count.current + 1;
+    }, [])
 
     return (
         <li className="comments__comment">
@@ -10,7 +15,8 @@ function Comment({ comment, changeAllKids }) {
             {comment.kids ?
                 <CommentsList
                     commentsList={comment.kids}
-                    changeAllKids={changeAllKids} /> :
+                    changeAllKids={changeAllKids}
+                    count={count} /> :
                 null}
         </li>
     );

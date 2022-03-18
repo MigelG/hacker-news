@@ -14,6 +14,8 @@ function App() {
       <Header />
 
       <Switch>
+        <Redirect exact from='/' to='/news' />
+
         <Route exact path='/news'>
           <Main
             newsList={newsList}
@@ -26,10 +28,6 @@ function App() {
 
         <Route path='/error'>
           <NotFoundPage />
-        </Route>
-
-        <Route exact path='/'>
-          <Redirect to='/news' />
         </Route>
 
         <Route path='*'>
