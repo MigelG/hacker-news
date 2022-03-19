@@ -14,7 +14,7 @@ function App() {
       <Header />
 
       <Switch>
-        <Redirect exact from='/' to='/news' />
+        <Redirect exact from='/hacker-news' to='/news' />
 
         <Route exact path='/news'>
           <Main
