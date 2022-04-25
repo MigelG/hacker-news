@@ -10,12 +10,11 @@
 * Create React App
 * CSS - стили написаны вручную с использованием БЭМ
 * Загрузка данных с [официального апи Hacker News](https://github.com/HackerNews/API)
-* Роутинг React Router v5
+* Роутинг React Router v6
 ## Установка
 1. Клонировать репозиторий `git clone git@github.com:MigelG/hacker-news.git`
 2. Выполнить `npm install`
 3. Выполнить `npm run start`
 ## Проблемы и планы по доработке
-* Перевести проект на react router 6
 * Не получается корректно отобразить счетчик комментариев
 * Добавить лоадер при загрузке комментариев
