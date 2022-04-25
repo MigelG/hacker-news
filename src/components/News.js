@@ -1,17 +1,17 @@
 import CommentsList from './CommentsList';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import api from '../utils/api';
 
 function News() {
     const { id } = useParams();
     const [news, setNews] = useState({});
-    const router = useHistory();
+    const navigate = useNavigate();
     const count = useRef(0);
 
     const regex = /^[0-9]+$/;
     if (!regex.test(id)) {
-        router.push('/error');
+        navigate('/error');
     }
 
     // Получаю новость с сервера по id
@@ -21,7 +21,7 @@ function News() {
                 if (i && i.type === 'story') {
                     setNews(i);
                 } else {
-                    router.push('/error');
+                    navigate('/error');
                 }
             })
             .catch(err => console.log(err));
@@ -37,7 +37,7 @@ function News() {
 
     return (
         <article className="news">
-            <button className='news__button' onClick={() => router.push('/news')} >Назад</button>
+            <button className='news__button' onClick={() => navigate('/news')} >Назад</button>
             <div className='news__info'>
                 <p className='news__author'>Автор: {news.by}</p>
                 <p className='news__date'>

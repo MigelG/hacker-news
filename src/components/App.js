@@ -1,6 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import News from './News';
 import NotFoundPage from './NotFoundPage';
 import Main from './Main';
@@ -13,27 +13,29 @@ function App() {
     <div className='page'>
       <Header />
 
-      <Switch>
-        <Redirect exact from='/hacker-news' to='/news' />
+      <Routes>
+        <Route
+          path='/news'
+          element={
+            <Main
+              newsList={newsList}
+              setNewsList={setNewsList} />
+          } />
 
-        <Route exact path='/news'>
-          <Main
-            newsList={newsList}
-            setNewsList={setNewsList} />
-        </Route>
+        <Route
+          path='/news/:id'
+          element={
+            <News />
+          } />
 
-        <Route path='/news/:id'>
-          <News />
-        </Route>
-
-        <Route path='/error'>
+        <Route path='/error' element={
           <NotFoundPage />
-        </Route>
+        } />
 
-        <Route path='*'>
-          <Redirect to='/error' />
-        </Route>
-      </Switch>
+        <Route path='*' element={
+          <Navigate to='/error' />
+        } />
+      </Routes>
 
       <Footer />
     </div>
