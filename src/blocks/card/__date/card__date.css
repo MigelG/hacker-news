@@ -1,9 +1,0 @@
-.card__date {
-    margin: 0;
-}
-
-@media screen and (min-width: 767px) {
-    .card__date {
-        margin-right: 10px;
-    }
-}

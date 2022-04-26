@@ -1,0 +1,32 @@
+@use 'src/styles/variables'as vars;
+
+.footer {
+    background-color: vars.$main-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    font-size: 18px;
+    font-weight: 500;
+
+    .date {
+        margin: 0;
+    }
+
+    .author {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .footer {
+        padding: 20px 15px;
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1023px) {
+    .footer {
+        padding: 20px calc((100vw - 994px) / 2);
+    }
+}

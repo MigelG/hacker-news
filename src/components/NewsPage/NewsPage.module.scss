@@ -1,0 +1,54 @@
+@use 'src/styles/variables'as vars;
+
+.news {
+    flex: 1;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    max-width: 994px;
+    margin: auto;
+    font-size: 16px;
+
+    .button {
+        width: 15%;
+        min-width: 100px;
+        height: 40px;
+        background-color: vars.$main-color;
+    }
+
+    .button:hover {
+        cursor: pointer;
+        box-shadow: 0 0 5px black;
+    }
+
+    .info {
+        margin: 10px 0;
+        line-height: 1.5;
+    }
+
+    .author {
+        margin: 0;
+    }
+
+    .date {
+        margin: 0;
+    }
+
+    .title {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 900;
+        margin-bottom: 10px;
+    }
+
+    .link {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .news {
+        font-size: 18px;
+    }
+}

@@ -1,9 +1,0 @@
-.card__author {
-    margin: 0;
-}
-
-@media screen and (min-width: 767px) {
-    .card__author {
-        margin-right: 10px;
-    }
-}

@@ -1,0 +1,29 @@
+@use 'src/styles/variables'as vars;
+
+.page {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: vars.$back-color;
+
+    .main {
+        flex: 1;
+        position: relative;
+        min-width: 300px;
+        max-width: 994px;
+        width: calc(100vw - 20px);
+        margin: auto;
+        padding-top: 10px;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .main {
+        width: calc(100vw - 30px);
+    }
+}

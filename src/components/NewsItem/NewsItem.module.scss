@@ -1,0 +1,61 @@
+.card {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px black;
+
+    &:hover {
+        box-shadow: 5px 5px 10px gray;
+    }
+
+    .body {
+        background-color: rgb(246, 246, 239);
+        border-radius: 10px;
+        padding: 5px;
+
+        .title {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 900;
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .author {
+                margin: 0;
+            }
+
+            .date {
+                margin: 0;
+            }
+
+            .score {
+                margin: 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .info {
+        flex-direction: row;
+        justify-content: left;
+
+        .author {
+            margin-right: 10px;
+        }
+
+        .date {
+            margin-right: 10px;
+        }
+    }
+}

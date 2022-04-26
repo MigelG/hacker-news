@@ -1,0 +1,42 @@
+@use 'src/styles/variables'as vars;
+
+.header {
+    background-color: vars.$main-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+    .logo {
+        width: 32px;
+        height: 32px;
+        border: 2px solid white;
+    }
+
+    .title {
+        font-size: 28px;
+        font-weight: 900;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .header {
+        padding: 15px;
+
+        .logo {
+            width: 36px;
+            height: 36px;
+        }
+
+        .title {
+            font-size: 32px;
+        }
+    }
+}
+
+@media screen and (min-width: 1023px) {
+    .header {
+        padding: 15px calc((100vw - 994px) / 2);
+    }
+}
