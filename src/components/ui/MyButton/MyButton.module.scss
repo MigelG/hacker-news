@@ -1,0 +1,13 @@
+@use 'src/styles/variables'as vars;
+
+.button {
+    width: 15%;
+    min-width: 100px;
+    height: 40px;
+    background-color: vars.$main-color;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 5px black;
+    }
+}

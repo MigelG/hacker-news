@@ -1,13 +1,16 @@
 import { useNavigate } from 'react-router-dom';
+import MyButton from '../ui/MyButton/MyButton';
 
-export default function NotFoundPage() {
+function NotFoundPage() {
 
     const navigate = useNavigate();
 
     return (
-        <div className='news'>
-            <button className='news__button' onClick={() => navigate('/news')} >Назад</button>
+        <>
+            <MyButton onClick={() => navigate('/')}>Назад</MyButton>
             <h1>Страница не найдена</h1>
-        </div>
+        </>
     )
 }
+
+export default NotFoundPage;

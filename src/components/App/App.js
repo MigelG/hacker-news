@@ -1,6 +1,6 @@
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import NewsPage from '../NewsPage/NewsPage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import NewsList from '../NewsList/NewsList';
@@ -31,13 +31,11 @@ function App() {
               <NewsPage />
             } />
 
-          <Route path='/error' element={
-            <NotFoundPage />
-          } />
-
-          <Route path='*' element={
-            <Navigate to='/error' />
-          } />
+          <Route
+            path='*'
+            element={
+              <NotFoundPage />
+            } />
         </Routes>
       </main>
 

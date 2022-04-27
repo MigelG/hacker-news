@@ -22,7 +22,6 @@ function CommentsList({ commentsList, changeAllKids, count }) {
 
     return (
         <div className={styles.comments}>
-            <h2 className={styles.title}>Комментарии ({count.current}):</h2>
             <ul className={styles.list}>
                 {comments.map((comment) => <CommentItem
                     key={comment.id}
