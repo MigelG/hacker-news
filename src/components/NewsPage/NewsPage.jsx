@@ -11,6 +11,7 @@ function NewsPage() {
     const [news, setNews] = useState({});
     const navigate = useNavigate();
     const count = useRef(0);
+    const ref = useRef();
     const [notFoundError, setNotFoundError] = useState(false);
 
     // Получаю новость с сервера по id
@@ -25,6 +26,14 @@ function NewsPage() {
             })
             .catch(err => console.log(err));
     }, []);
+
+    useEffect(() => {
+        if (news.text) {
+            ref.current.insertAdjacentHTML("afterbegin", news.text);
+        } else {
+            ref.current.insertAdjacentHTML("afterbegin", '');
+        }
+    }, [news]);
 
     // Стейт для подсчета количества комментариев
     const [allKids, setAllKids] = useState(0);
@@ -46,7 +55,7 @@ function NewsPage() {
                     </p>
                 </div>
                 <h1 className={styles.title}>{news.title}</h1>
-                <p>{news.text}</p>
+                <p ref={ref}></p>
                 {news.url ?
                     <a className={styles.link} href={news.url} target='_blank' rel="noreferrer">Ссылка на новость</a> :
                     <span className={styles.link}>Ссылка на новость отсутствует</span>}
